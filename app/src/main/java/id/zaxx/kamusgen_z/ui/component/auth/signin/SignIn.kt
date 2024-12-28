@@ -1,5 +1,7 @@
 package id.zaxx.kamusgen_z.ui.component.auth.signin
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -111,11 +114,12 @@ fun FormSignIn(modifier: Modifier = Modifier) {
 
             )
 
+            val mContext = LocalContext.current
             Button(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(end = 10.dp, start = 10.dp, top = 5.dp),
-                onClick = { /*TODO*/ },
+                onClick = { mToast(mContext) },
                 content = {
                     Text("Daftar", )
                 }
@@ -124,6 +128,10 @@ fun FormSignIn(modifier: Modifier = Modifier) {
     }
 }
 
+
+fun mToast(context : Context) {
+    Toast.makeText(context, "Berhasil Daftar", Toast.LENGTH_SHORT).show()
+}
 
 @Preview ( showBackground = true)
 @Composable
