@@ -20,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import id.zaxx.kamusgen_z.ui.Greeting
+import id.zaxx.kamusgen_z.ui.component.auth.signin.FormSignIn
 import id.zaxx.kamusgen_z.ui.theme.KamusGenZTheme
 import kotlinx.coroutines.launch
 
@@ -33,18 +34,19 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val scope = rememberCoroutineScope()
-                    var text by remember { mutableStateOf("Loading") }
-                    LaunchedEffect(true) {
-                        scope.launch {
-                            text = try {
-                                Greeting().greeting()
-                            } catch (e: Exception) {
-                                e.localizedMessage ?: "error"
-                            }
-                        }
-                    }
-                    GreetingView(text)
+//                    val scope = rememberCoroutineScope()
+//                    var text by remember { mutableStateOf("Loading") }
+//                    LaunchedEffect(true) {
+//                        scope.launch {
+//                            text = try {
+//                                Greeting().greeting()
+//                            } catch (e: Exception) {
+//                                e.localizedMessage ?: "error"
+//                            }
+//                        }
+//                    }
+//                    GreetingView(text)
+                    FormSignIn()
                 }
             }
         }
